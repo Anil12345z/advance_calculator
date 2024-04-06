@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance calculator</title>
+
+
+<style>
+
+body{
+    background-color: black;
+}
+
+    form {
+        margin-top: 10px;
+      }
+      
+      .numInput input {
+        width: 100%;
+        height: 75px;
+        font-size: 24px;
+        border-radius: 5px;
+      }
+      
+      .tableOne,
+      .tablePower,
+    
+      .tableThree {
+        margin: auto;
+        border-radius: 5px;
+        width: 50%;
+        
+      }
+
+       .tableTwo{
+        margin: auto;
+        border-radius: 50px;
+        width: 83%; }
+        
+      
+      .tableOne input {
+      
+        width: 280px;
+        height: 70px;
+        border-radius: 5px;
+        font-size: 65px;
+        text-align: right;
+      }
+      
+      .tableTwo {
+        height: 350px;
+      }
+      
+      .tableThree input {
+        background-color: rgb(255, 53, 53);
+        margin: auto;
+      }
+      
+      .operator {
+        background-color: #ff8c00;
+      }
+      
+      #solvePowTD {
+        display: none;
+      }
+      
+      #solvePow {
+        background-color: grey;
+      }
+      
+      #solveInvTD {
+        display: none;
+      }
+      
+      #solveInv {
+        background-color: grey;
+      }
+      
+      #solvePercTD {
+        display: none;
+      }
+      
+      #solvePerc {
+        background-color: grey;
+      }
+      
+
+  #heading{
+
+    text-align: center;
+    color:antiquewhite;
+    font-weight: 400;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  }
+
+
+  #foram{
+    border:#68301f 6px solid;
+    padding-top: 10;
+    background-color: rgb(171, 233, 212);
+
+  }
+
+  .black{
+    background-color: black;
+    color: aliceblue;
+  }
+     
+
+
+  .black1{
+    background-color: rgb(255, 128, 0);
+  }
+     input{
+        cursor:grab;
+     }
+
+     .box{
+        color:aliceblue;
+        text-align: center;
+     }
+</style>
+
+
+
+
+
+</head>
+<body>
+    
+  <h2 id="heading">Advance Calculator</h2>
+
+    <form name="calculator"   id="foram">
+      <br>
+    <center>   <table class="tableOne">
+          <tr>
+            <td>
+          <input   type="text" name="display" id="display" placeholder="0">  
+            </td>
+          </tr>
+        </table>
+        </center> 
+      
+        <table class="tableTwo">
+          <tr class="numInput">
+            <td>
+              <input class="black" type="button" name="one" value="1" onclick="calculator.display.value += '1'">
+            </td>
+            <td>
+              <input   class="black" type="button" name="two" value="2" onclick="calculator.display.value += '2'">
+            </td>
+            <td>
+              <input   class="black" type="button" name="three" value="3" onclick="calculator.display.value += '3'">
+            </td>
+            <td>
+              <input  class="black1" type="button" class="operator" name="plus" value="+" onclick="calculator.display.value += '+'">
+            </td>
+          </tr>
+          <tr class="numInput">
+            <td>
+              <input   class="black" type="button" name="four" value="4" onclick="calculator.display.value += '4'">
+            </td>
+            <td>
+              <input   class="black" type="button" name="five" value="5" onclick="calculator.display.value += '5'">
+            </td>
+            <td>
+              <input   class="black" type="button" name="six" value="6" onclick="calculator.display.value += '6'">
+            </td>
+            <td>
+              <input   class="black1" type="button" class="operator" name="minus" value="-" onclick="calculator.display.value += '-'">
+            </td>
+          </tr>
+          <tr class="numInput">
+            <td>
+              <input  class="black" type="button" name="seven" value="7" onclick="calculator.display.value += '7'">
+            </td>
+            <td>
+              <input  class="black" type="button" name="eight" value="8" onclick="calculator.display.value += '8'">
+            </td>
+            <td>
+              <input  class="black" type="button" name="nine" value="9" onclick="calculator.display.value += '9'">
+            </td>
+            <td>
+              <input  class="black1"  type="button" class="operator" name="times" value="x" onclick="calculator.display.value += '*'">
+            </td>
+          </tr>
+          <tr class="numInput">
+            <td>
+              <input  class="black" type="button" name="clear" id="clear" value="C" onclick="calculator.display.value = ''">
+            </td>
+            <td>
+              <input  class="black" type="button" name="zero" value="0" onclick="calculator.display.value += '0'">
+            </td>
+            <td>
+              <input type="button" name="equal" id="equals" value="=" onclick="calculator.display.value = eval(calculator.display.value)">
+            </td>
+            <td>
+              <input   class="black1" type="button" class="operator" name="div" value="/" onclick="calculator.display.value += '/'">
+            </td>
+          </tr>
+        </table>
+      
+        <table class="tableThree">
+          <tr class="numInput">
+            <td>
+              <input type="button" id="decimal" value="." onclick="calculator.display.value += '.'">
+            </td>
+            <td>
+              <input type="button" id="SQRT" name="sqrt" value="&Sqrt;" onclick="getSqrt()">
+            </td>
+            <td>
+              <input type="button" id="3.141592653589793" name="sqrt" value="&Pi;" onclick="getPi(this.id)">
+            </td>
+            <td>
+              <input type="button" id="Round" name="round" value="R-OFF" onclick="round1()">
+            </td>
+          </tr>
+          <tr class="numInput">
+            <td>
+              <input type="button" id="byTWO" name="byTwo" value="x^2" onclick="getByTwo()">
+            </td>
+            <td>
+              <input type="button" id="byTHREE" name="byThree" value="x^3" onclick="getByThree()">
+            </td>
+            <td id="sin">
+                <input type="button" id="sin" name="sin" value="sin" onclick="sin1()">
+              </td>
+              <td id="cos">
+                <input type="button" id="cos" name="cos" value="cos" onclick="cos1()">
+              </td>
+           
+          </tr>
+          <tr class="numInput">
+            
+            <td id="percSymbTD">
+              <input type="button" id="/100" name="percSymb" value="%" onclick="getPercent(this.id)">
+            </td>
+            <td id="log10">
+              <input type="button" id="log10" name="log10" value="log-10" onclick="log101()">
+            </td>
+            <td id="log2">
+                <input type="button" id="log2" name="log2" value="log-2" onclick="log21()">
+              </td>
+            <td id="matpow">
+              <input type="button" id="mathpow" name="mathpow" value="x^x" onclick="mathpow1()">
+            </td>
+
+          </tr>
+        </table>
+        <br>
+        <br>
+      </form>
+
+      <div class="box">
+
+<h4>Description & help-</h4>
+<h5>  -:For symbols (log, sin, cos, &pi;, &Sqrt;,etc)- First enter the number then click on desired symbol for answer:-</h5>
+ <p>1. Symbol % means (percentage) number divide by 100.</p>
+ <p>2. x^x returns the value of x to the power x.</p>
+ <p>3. Log10 returns value of lox x with base 10.</p>
+ <p>4. Log2 returns value of lox x with base 2.</p>
+ <p>5. R-OFF returns the round off value.</p>
+ <p>6. Sin returns the value of sin with angle in degree.</p>
+ <p>7. Cos returns the value of cos with angle in degree.</p>
+ <p>8. &pi; returns the value of PI.</p>
+ <p>9. &Sqrt; returns the square-root of number.</p>
+  </div>
+
+
+
+    <footer style="color:white;" >
+     <center>  <p>Copyright &copy; 2023 <img src="1.png" alt="logo" height="36" width="36"> All Rights Reserved.</p>
+       <p> By- Anil Chahar</p>
+      </center> 
+    </footer>
+
+<script>
+
+
+    function getSqrt() {
+        var x = document.calculator.display.value;
+        var display = Math.sqrt(x);
+        document.calculator.display.value = display;
+      }
+      
+      function getByTwo() {
+        var y = document.calculator.display.value;
+        var twoPower = Math.pow(y, 2);
+        document.calculator.display.value = twoPower;
+      }
+      
+      function getByThree() {
+        var z = document.calculator.display.value;
+        var threePower = Math.pow(z, 3);
+        document.calculator.display.value = threePower;
+      }
+
+      function round1(){
+
+        let x = document.calculator.display.value;
+        var display = Math.round(x);
+        document.calculator.display.value = display;
+
+      }
+
+      function sin1(){
+
+        let x = document.calculator.display.value;
+        var display = Math.sin(x * Math.PI / 180);
+        document.calculator.display.value = display;
+
+      }
+
+      function cos1(){
+
+        let x = document.calculator.display.value;
+        var display = Math.cos(x * Math.PI / 180);
+        document.calculator.display.value = display;
+
+      }
+
+      function log101(){
+
+        let x = document.calculator.display.value;
+        var display = Math.log10(x);
+        document.calculator.display.value = display;
+
+      }
+
+      function log21(){
+
+        let x = document.calculator.display.value;
+        var display = Math.log2(x);
+        document.calculator.display.value = display;
+
+      }
+
+      function mathpow1(){
+
+        let x = document.calculator.display.value;
+        let sign =  document.calculator.display.value;
+        let y = document.calculator.display.value;
+        var xpowery = Math.pow(x, y);
+        document.calculator.display.value =  xpowery;
+
+      }
+
+
+
+      
+      function getPi(pi) {
+        document.calculator.display.value += pi;
+      }
+      
+
+
+
+
+
+
+
+
+
+      function getSymbol(powSymbol) {
+        document.calculator.display.value += powSymbol;
+        document.getElementById("solvePowTD").style.display = "block";
+        document.getElementById("powSymbTD").style.display = "none";
+        document.getElementById("equals").disabled = true;
+      }
+      
+      function evalPower() {
+        document.calculator.display.value = math.eval(
+          document.calculator.display.value
+        );
+        document.getElementById("solvePowTD").style.display = "none";
+        document.getElementById("powSymbTD").style.display = "block";
+        document.getElementById("equals").disabled = false;
+      }
+      
+      function getInverse(inv) {
+        document.calculator.display.value += inv;
+        document.getElementById("solveInvTD").style.display = "block";
+        document.getElementById("invSymbTD").style.display = "none";
+        document.getElementById("equals").disabled = true;
+      }
+      
+      function evalInverse() {
+        document.calculator.display.value = math.eval(
+          document.calculator.display.value
+        );
+        document.getElementById("solveInvTD").style.display = "none";
+        document.getElementById("invSymbTD").style.display = "block";
+        document.getElementById("equals").disabled = false;
+      }
+      
+      function getPercent(perc) {
+        document.calculator.display.value += perc;
+        document.getElementById("solvePercTD").style.display = "block";
+        document.getElementById("percSymbTD").style.display = "none";
+        document.getElementById("equals").disabled = true;
+      }
+      
+      function evalPercent() {
+        document.calculator.display.value = math.eval(
+          document.calculator.display.value
+        );
+        document.getElementById("solvePercTD").style.display = "none";
+        document.getElementById("percSymbTD").style.display = "block";
+        document.getElementById("equals").disabled = false;
+      }
+      
+
+</script>
+
+</body>
+</html>
